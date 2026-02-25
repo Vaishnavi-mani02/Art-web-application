@@ -1,0 +1,59 @@
+
+/* General purpose fade-in animation */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-up and fade-in animation */
+.slide-up-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation for children */
+.stagger-children > * {
+  animation-fill-mode: both;
+}
+
+.stagger-children-slow > * {
+  animation-fill-mode: both;
+}
+
+@for $i from 1 through 10 {
+  .stagger-children > *:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
+  }
+  .stagger-children-slow > *:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.2}s;
+  }
+}
+
+
+/* Parallax background effect for hero */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
